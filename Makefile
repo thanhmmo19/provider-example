@@ -7,7 +7,7 @@ PACT_CLI="docker run --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKE
 ## CI tasks
 ## ====================
 
-ci: test can_i_deploy $(DEPLOY_TARGET)
+ci: test
 
 
 ci_webhook: .env
