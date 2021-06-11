@@ -7,7 +7,7 @@ PACT_CLI="docker run --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKE
 ## CI tasks
 ## ====================
 
-ci: test
+ci: test_pact
 
 
 ci_webhook: .env
@@ -17,8 +17,8 @@ ci_webhook: .env
 ## Build/test tasks
 ## =====================
 
-test: .env
-	npm run test
+test_pact: .env
+	npm run test:pact
 
 ## =====================
 ## Pactflow set up tasks
