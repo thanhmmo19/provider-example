@@ -11,11 +11,6 @@ const port = 4321;
 const gitBranch = exec.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
 
-console.log("==================================Show git log================================");
-console.log(gitBranch);
-console.log(gitHash);
-console.log("==================================Show git log================================");
-
 // Setup provider server to verify
 const app = require('express')();
 const authMiddleware = require('../src/middleware/auth.middleware');
@@ -63,6 +58,7 @@ describe("Pact Verification", () => {
 
         return new Verifier(opts).verifyProvider()
             .then(output => {
+                console.log(output)
                 console.log("Pact Verification Complete!")
             })
             .finally(() => {
