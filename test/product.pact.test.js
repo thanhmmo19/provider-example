@@ -41,19 +41,19 @@ describe("Pact Verification", () => {
             next();
         }
 
-        const consumerVersionSelectors = [
-            {
-                consumer: process.env.CONSUMER_NAME,
-                tag: gitBranch,
-                latest: true
-            }
-        ]
+        // const consumerVersionSelectors = [
+        //     {
+        //         consumer: process.env.CONSUMER_NAME,
+        //         tag: gitBranch,
+        //         latest: true
+        //     }
+        // ]
 
         const opts = {
             ...baseOpts,
             stateHandlers: stateHandlers,
             requestFilter: requestFilter,
-            consumerVersionSelectors: consumerVersionSelectors
+            // consumerVersionSelectors: consumerVersionSelectors
         };
 
         return new Verifier(opts).verifyProvider()
