@@ -24,7 +24,7 @@ describe("Pact Verification", () => {
             providerBaseUrl: `${url + port}`,
             providerVersion: gitHash,
             provider: process.env.PROVIDER_NAME,
-            pactBrokerUrl: process.env.PACT_BROKER_URL,
+            pactBrokerUrl: process.env.PACT_BROKER_BASE_URL,
             pactBrokerToken: process.env.PACT_BROKER_TOKEN,
             publishVerificationResult: true,
             providerVersionTags: gitBranch
