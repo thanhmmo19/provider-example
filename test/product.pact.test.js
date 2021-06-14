@@ -10,7 +10,8 @@ const port = 4321;
 
 let gitBranch = exec.execSync('git branch --show-current').toString().trim();
 if(gitBranch === "") gitBranch = process.env.GIT_BRANCH;
-const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
+// const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
+const gitHash = process.env.GIT_COMMIT;
 
 // Setup provider server to verify
 const app = require('express')();
