@@ -11,6 +11,11 @@ const port = 4321;
 const gitBranch = exec.execSync('git branch --show-current').toString().trim();
 const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
 
+console.log("==================================Show git log================================");
+console.log(gitBranch);
+console.log(gitHash);
+console.log("==================================Show git log================================");
+
 // Setup provider server to verify
 const app = require('express')();
 const authMiddleware = require('../src/middleware/auth.middleware');
@@ -41,19 +46,19 @@ describe("Pact Verification", () => {
             next();
         }
 
-        // const consumerVersionSelectors = [
-        //     {
-        //         consumer: process.env.CONSUMER_NAME,
-        //         tag: gitBranch,
-        //         latest: true
-        //     }
-        // ]
+        const consumerVersionSelectors = [
+            {
+                consumer: process.env.CONSUMER_NAME,
+                tag: gitBranch,
+                latest: true
+            }
+        ]
 
         const opts = {
             ...baseOpts,
             stateHandlers: stateHandlers,
             requestFilter: requestFilter,
-            // consumerVersionSelectors: consumerVersionSelectors
+            consumerVersionSelectors: consumerVersionSelectors
         };
 
         return new Verifier(opts).verifyProvider()
