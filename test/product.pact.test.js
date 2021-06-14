@@ -8,7 +8,8 @@ require('dotenv').config()
 const url = 'http://localhost:';
 const port = 4321;
 
-const gitBranch = exec.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+// const gitBranch = exec.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+const gitBranch = "improve-demo";
 const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
 
 // Setup provider server to verify
