@@ -8,7 +8,7 @@ require('dotenv').config()
 const url = 'http://localhost:';
 const port = 4321;
 
-let gitBranch = exec.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+let gitBranch = exec.execSync('git branch --show-current').toString().trim();
 if(gitBranch === "") gitBranch = process.env.GIT_BRANCH;
 const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
 
