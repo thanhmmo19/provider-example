@@ -21,6 +21,7 @@
     "allure-commandline": "^2.13.8"
   },
   "jest": {
+    "globalTeardown": "./test/setup/teardown.js",
     "setupFilesAfterEnv": [
       "jest-allure/dist/setup",
       "./test/setup/testSetup.js"
